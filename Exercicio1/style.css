@@ -1,0 +1,30 @@
+table {
+    border: 1px solid black;
+    font-family: "Verdana";
+    font-size: 14;
+    border-collapse: collapse;
+}
+ 
+table td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+table th {
+    border: 1px solid black;
+    text-align: center;
+}
+
+#table {
+	position: absolute;
+	left: 400px; /* posiciona a 400px para a esquerda */
+	top: 50px;
+	border: 2px solid blue;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+button {
+	padding-right:50%;
+	padding-left: 50%;
+}
