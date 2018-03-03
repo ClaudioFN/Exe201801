@@ -1,5 +1,6 @@
 ﻿# Exercicios
 Repositório de exercícios
-* Exercício 1 PSW
-  _ Número 1: Montar Tabela.
-  _ Número 2: Usar Javascript para modicar tabela por botão
+1. Exercícios PSW
+   1.1. Lista 1
+      > Número 1: Montar Tabela.
+      > Número 2: Usar Javascript para modicar tabela por botão
