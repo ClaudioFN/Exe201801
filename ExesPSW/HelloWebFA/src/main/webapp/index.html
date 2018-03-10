@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>HelloWeb em Maven para aplicação JavaEE</h1>
+        <p id="mudar" onChange="mudarPalavra();"></p>
+        <button onClick="mudarPalavra();">Mudar Palavra</button>
+        <script type="text/javascript">
+		var situacao = "PALAVRA1";
+		function mudarPalavra(){
+			if (confirm("Mudar?")) {
+                            if (situacao == "PALAVRA1"){
+                                    situacao = "PALAVRA2";
+                                    document.getElementById("mudar").innerHTML = situacao;					
+                            }else{
+                                    situacao = "PALAVRA1";
+                                document.getElementById("mudar").innerHTML = situacao;
+                            }
+			}
+		}
+		document.getElementById("mudar").innerHTML = situacao;
+	</script>
+    </body>
+</html>
