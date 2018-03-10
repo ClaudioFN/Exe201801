@@ -24,3 +24,8 @@ Repositório de exercícios
 	 > 7. Faça o commit e o push para o github do seu código-fonte.   
 
 ---      
+2. Exercícios APS
+
+    2.1 
+    
+---    
