@@ -21,11 +21,17 @@ Repositório de exercícios
 
 	 > 6. Gere o javadoc em HTML da sua aplicação.
 
-	 > 7. Faça o commit e o push para o github do seu código-fonte.   
+	 > 7. Faça o commit e o push para o github do seu código-fonte. 
+
+   1.3. Projeto Aluno 2(ProjetoSala)
+     > 1. Misturar o Exercício 1 para criar um formulário responsivo em JSP ao utlizar uma validação no Servlet para aceitar os valores digitados
+
+   1.4. Projeto Aluno 3(ProjetoSala)
+     > 1. Usar EL/JSTL para substituir as TAGS Java do Projeto Aluno 2(ProjetoSala)
 
 ---      
 2. Exercícios APS
 
-    2.1 
+    2.1 Usar Diagramas de Sequência para informar os procedimentos dos Casos de Usos criado para o Exer. Anúncio criado com Diagrama de Classes em momento anterior.
     
 ---    
