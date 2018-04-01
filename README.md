@@ -32,6 +32,7 @@ Repositório de exercícios
 ---      
 2. Exercícios APS
 
-    2.1 Usar Diagramas de Sequência para informar os procedimentos dos Casos de Usos criado para o Exer. Anúncio criado com Diagrama de Classes em momento anterior.
+    2.1 Usar arquivo de Exerc. Anúncio para criar Diagramas de Sequência para envio por email
+     > 1. Usar Diagramas de Sequência para informar os procedimentos dos Casos de Usos criado para o Exer. Anúncio moldados com Diagrama de Classes em momento anterior.
     
 ---    
