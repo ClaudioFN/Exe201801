@@ -19,32 +19,32 @@
             <caption> Preencher Campos de Formulário</caption>
                <tr align="center">
                  <td align='center'>
-                    Aluno: <input type="text" name="aluno" value="<%= request.getParameter("aluno") == null ? "" : request.getParameter("aluno")%>" > <%= request.getAttribute("errorAluno") != null ? request.getAttribute("errorAluno") : ""%>
+                    Aluno: <input type="text" name="aluno" value="${param.aluno}" >${errorAluno}
                  </td>
                </tr>
                <tr align="center">
                  <td align='center'>
-                    Nota 1: <input type="text" name="n1" value="<%= request.getParameter("n1") == null ? "" : request.getParameter("n1")%>" > <%= request.getAttribute("errorN1") != null ? request.getAttribute("errorN1") : ""%>
+                    Nota 1: <input type="text" name="n1" value="${param.n1}" > ${errorN1}
                  </td>
                </tr> 
                <tr align="center">
                  <td align='center'>
-                    Nota 2: <input type="text" name="n2" value="<%= request.getParameter("n2") == null ? "" : request.getParameter("n2")%>" > <%= request.getAttribute("errorN2") != null ? request.getAttribute("errorN2") : ""%>
+                    Nota 2: <input type="text" name="n2" value="${param.n2}" > ${errorN1}
                  </td>
                 </tr> 
                <tr align="center">
                  <td align='center'>
-                    Nota Final: <input type="text" name="nf" value="<%= request.getParameter("nf") == null ? "" : request.getParameter("nf")%>" > <%= request.getAttribute("errorNF") != null ? request.getAttribute("errorNF") : ""%>
+                    Nota Final: <input type="text" name="nf" value="${param.nf}" > ${errorNF}
                  </td>
                </tr>                       
                <tr align="center">
                  <td align='center'>                  
-                    Prova Final:  <input type="text" name="pof" value="<%= request.getParameter("pof") == null ? "" : request.getParameter("pof")%>" > <%= request.getAttribute("errorPOF") != null ? request.getAttribute("errorPOF") : ""%>
+                    Prova Final:  <input type="text" name="pof" value="${param.pof}" > ${errorPOF}
                  </td>
                </tr>  
                <tr align="center">
                  <td align='center'>   
-                    Frequência: <input type="text" name="freq" value="<%= request.getParameter("freq") == null ? "" : request.getParameter("freq")%>" > <%= request.getAttribute("errorFreq") != null ? request.getAttribute("errorFreq") : ""%>
+                    Frequência: <input type="text" name="freq" value="${param.freq}" > ${errorPOF}
                  </td>
                </tr>
                <tr align="center">

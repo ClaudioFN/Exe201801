@@ -21,7 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/NewS")
 public class NewS extends HttpServlet {
-
+            
+    ArrayList<Alunos> lista = new ArrayList<Alunos>(); 
     /**
      * Servlet para atribuir valores aos alunos e suas Notas após validar informações
      * Informações tratadas no doGet
@@ -33,7 +34,6 @@ public class NewS extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -54,6 +54,7 @@ public class NewS extends HttpServlet {
             String situacaoAluno = "";
             
             double n1 = -1, n2 = -1, nf = -1, pof = -1, freq = -1;
+            Alunos al = new Alunos(); 
             
             String name = request.getParameter("aluno");
             
@@ -84,8 +85,6 @@ public class NewS extends HttpServlet {
 
             boolean formValido = true;
             
-            Alunos al = new Alunos();
-            ArrayList<Alunos> lista = new ArrayList<Alunos>(); 
             
             //Realiza a Validação 
             if (name.isEmpty()) {
@@ -139,12 +138,12 @@ public class NewS extends HttpServlet {
             }else{
                 al.setFreq(freq);
             }            
-            
+          
             situacaoAluno = al.situacao(n1, n2, pof, nf, freq);
             al.setSituacaoAluno(situacaoAluno);
-            if(formValido){
-                lista.add(al);
-                request.setAttribute("al", al);
+            if(formValido){              
+                lista.add(al);                 
+                request.setAttribute("lista", lista);
                 request.getRequestDispatcher("formulario.jsp").forward(request, response);
             }else{
                 request.getRequestDispatcher("jspsala.jsp").forward(request, response);

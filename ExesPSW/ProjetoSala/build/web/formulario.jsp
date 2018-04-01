@@ -8,10 +8,13 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="classJSP.Alunos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <c:set var="cliente" value="${lista}" scope="page" />
         <title>Grade de Alunos</title>
     </head>
     <body>
@@ -19,14 +22,6 @@
            <table align="center" style="height:100%;width:100%;" border="1">
             <h1>Sucesso no Formulário</h1>
            </table>
-                <%!
-                   ArrayList<Alunos> alunos = new ArrayList<Alunos>();
-                   Alunos nAluno = new Alunos();
-                %>
-                <%
-                    nAluno = (Alunos)request.getAttribute("al");
-                    alunos.add(nAluno);
-                %>
                 <table align="center" style="height:100%;width:100%;" border="1">
                   <caption>TABELA EXERCÍCIO 1</caption>
                   <tr>
@@ -37,18 +32,16 @@
                     <th>Prova Final</th>
                     <th>Situação</th>	    	    
                   </tr>
-                 <% for(int i = 0; i < alunos.size(); i++){%>                  
+                 <c:forEach var="aluno" items="${lista}">
                     <tr>
-                      <td> <%= alunos.get(i).getAluno() %> </td>
-                      <td> <%= alunos.get(i).getN1() %> </td>
-                      <td> <%= alunos.get(i).getN2() %> </td>
-                      <td> <%= alunos.get(i).getNF() %> </td>
-                      <td> <%= alunos.get(i).getPOF() %> </td>
-                      <td> <%= alunos.get(i).getSituacaoAluno() %></td>
+                      <td> ${aluno.getAluno()} </td>
+                      <td> ${aluno.getN1()} </td>
+                      <td> ${aluno.getN2()} </td>
+                      <td> ${aluno.getNF()} </td>
+                      <td> ${aluno.getPOF()} </td>
+                      <td> ${aluno.getSituacaoAluno()} </td>
                     </tr>
-            <%
-                }
-            %>
+                 </c:forEach>
                 </table>
              </table>     
         </form>                
