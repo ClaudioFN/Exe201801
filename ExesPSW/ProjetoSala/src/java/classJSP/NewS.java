@@ -7,6 +7,7 @@ import classJSP.Alunos;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
 import javax.servlet.DispatcherType;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +15,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
  *
  * @author Claudio Freitas
@@ -23,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
 public class NewS extends HttpServlet {
             
     ArrayList<Alunos> lista = new ArrayList<Alunos>(); 
+    
+    
     /**
      * Servlet para atribuir valores aos alunos e suas Notas após validar informações
      * Informações tratadas no doGet
@@ -31,6 +33,7 @@ public class NewS extends HttpServlet {
      * @throws ServletException errors do server
      * @throws IOException errors de Entrada/Saida
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
@@ -50,13 +53,16 @@ public class NewS extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             
-            String errorAluno, errorN1, errorN2, errorNF, errorPOF, errorFreq;
+            String errorAluno, errorN1, errorN2, errorNF, errorPOF, errorFreq, errorMateria;
             String situacaoAluno = "";
             
             double n1 = -1, n2 = -1, nf = -1, pof = -1, freq = -1;
+            int alunoInvalido = 0;
             Alunos al = new Alunos(); 
-            
+            Alunos verAluno = new Alunos();
+
             String name = request.getParameter("aluno");
+            String materia = request.getParameter("materia");
             
             String N1 = request.getParameter("n1");
             if(!N1.isEmpty()){
@@ -81,19 +87,47 @@ public class NewS extends HttpServlet {
             String FREQ = request.getParameter("freq");
             if(!FREQ.isEmpty()){
                 freq = Double.parseDouble(FREQ);
-            }
+            }          
 
             boolean formValido = true;
             
             
             //Realiza a Validação 
+            
             if (name.isEmpty()) {
                 errorAluno = "É necessário preencher o nome do aluno.";
                 request.setAttribute("errorAluno", errorAluno);
                 formValido = false;
             }else{
+                for(int i = 0; i < lista.size(); i++){
+                    verAluno = lista.get(i);
+                    if(verAluno.getAluno().equalsIgnoreCase(name)){ 
+                        alunoInvalido = 1;
+                        break;
+                    }
+                }
                 al.setAluno(name);
-            }            
+            }           
+            
+            if (materia.isEmpty()) {
+                errorMateria = "É necessário preencher a Matéria do Aluno.";
+                request.setAttribute("errorMateria", errorMateria);
+                formValido = false;
+            }else{
+                for(int i = 0; i < lista.size(); i++){
+                    verAluno = lista.get(i);
+                        if(verAluno.getMateria().equals(materia) && alunoInvalido == 1){
+                            errorMateria = "Matéria já adicionada para Aluno(a) --> " + "(" + verAluno.getAluno() +")";
+                            request.setAttribute("errorMateria", errorMateria);
+                            formValido = false;   
+                            break;
+                        }
+                }
+                
+                if(formValido){
+                    al.setMateria(materia);
+                }
+            }             
             
             if(n1 < 0 || n1 > 10){
                 errorN1 = "Valor na Nota 1 inválido. Inserir valor entre 0 e 10.";
@@ -138,16 +172,20 @@ public class NewS extends HttpServlet {
             }else{
                 al.setFreq(freq);
             }            
-          
+            
             situacaoAluno = al.situacao(n1, n2, pof, nf, freq);
+            
             al.setSituacaoAluno(situacaoAluno);
+            
             if(formValido){              
-                lista.add(al);                 
+                lista.add(al); 
+                Collections.sort(lista);
                 request.setAttribute("lista", lista);
                 request.getRequestDispatcher("formulario.jsp").forward(request, response);
             }else{
                 request.getRequestDispatcher("jspsala.jsp").forward(request, response);
             }
+                        
     }
 
     @Override

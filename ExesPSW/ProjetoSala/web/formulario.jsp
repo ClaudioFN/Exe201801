@@ -4,7 +4,6 @@
     Author     : Claudio Freitas
 --%>
 
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="classJSP.Alunos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -22,29 +21,40 @@
            <table align="center" style="height:100%;width:100%;" border="1">
             <h1>Sucesso no Formulário</h1>
            </table>
-                <table align="center" style="height:100%;width:100%;" border="1">
-                  <caption>TABELA EXERCÍCIO 1</caption>
+                <table align="center" style="height:100%;width:100%;" border="1" class="table table-striped">
+                  <caption><strong>TABELA EXERCÍCIO 1</strong></caption>
                   <tr>
                     <th>Aluno</th>
                     <th>Nota 1</th>
                     <th>Nota 2</th>
                     <th>Nota Final</th>
                     <th>Prova Final</th>
-                    <th>Situação</th>	    	    
+                    <th>Situação</th>
+                    <th>Matéria</th>
                   </tr>
-                 <c:forEach var="aluno" items="${lista}">
-                    <tr>
-                      <td> ${aluno.getAluno()} </td>
-                      <td> ${aluno.getN1()} </td>
-                      <td> ${aluno.getN2()} </td>
-                      <td> ${aluno.getNF()} </td>
-                      <td> ${aluno.getPOF()} </td>
-                      <td> ${aluno.getSituacaoAluno()} </td>
-                    </tr>
-                 </c:forEach>
+                    <c:forEach var="alunoAtual" items="${lista}">
+                        <tr>
+                            <td> ${alunoAtual.getAluno()} </td>  
+                            <td> ${alunoAtual.getN1()} </td>
+                            <td> ${alunoAtual.getN2()} </td>
+                            <td> ${alunoAtual.getNF()} </td>
+                            <td> ${alunoAtual.getPOF()} </td>
+                            <td> ${alunoAtual.getSituacaoAluno()} </td>
+                            <td> ${alunoAtual.getMateria()} </td>
+                    </c:forEach>  
                 </table>
-             </table>     
+           <table align="center">
+               <tr align="center">
+                   <td align="center">
+                       <input type="button" value="Voltar" onClick="history.go(-1)" class="btn btn-primary">
+                   </td>
+               </tr>
+           </table>
         </form>                
-        </div>            
+        </div> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/1.12.9/umd/popper.min.js"></script>   
+    
     </body>
 </html>

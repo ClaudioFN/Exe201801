@@ -1,5 +1,7 @@
 package classJSP;
 
+import java.util.ArrayList;
+
 /*
  * Classe Aluno com validação das informações de Notas preechidas em tela de Formulário
  */
@@ -8,14 +10,24 @@ package classJSP;
  * @param n1, n2, nf, pof, freq double, M1, frequencia
  * @author Claudio Freitas
  */
-public class Alunos {
+public class Alunos  implements Comparable {
     private String aluno;
     private double n1, n2, nf, pof, freq;
     private String situacaoAluno;
     
+    private String materia;
+    
     double M1;
     double frequencia;
 
+    public void setMateria(String mate){
+        materia = mate;
+    }
+    
+    public String getMateria() {
+        return materia;
+    }
+    
     public String getAluno() {
         return aluno;
     }
@@ -91,6 +103,20 @@ public class Alunos {
             setSituacaoAluno("Reprovado");
         }
         return getSituacaoAluno();
+    }
+    
+    public boolean equals(Object o){
+            if(o instanceof Alunos){
+                    Alunos x = (Alunos)o;
+                    return getMateria().equals(x.getMateria()) || getAluno().equals(x.getAluno());
+            }
+            return false;
+    }   
+
+    public int compareTo(Object o) {
+        String comparename =((Alunos)o).getAluno();
+        /* For Ascending order*/
+        return this.aluno.compareTo(comparename);
     }
     
 }
