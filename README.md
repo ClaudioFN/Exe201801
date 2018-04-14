@@ -29,6 +29,15 @@ Repositório de exercícios
    1.4. Projeto Aluno 3(ProjetoSala)
      > 1. Usar EL/JSTL para substituir as TAGS Java do Projeto Aluno 2(ProjetoSala)
 
+   1.5. Projeto Simula
+     > 1. Criar uma interface para cadastramento de um novo Artista em um sistema web que valide os campos e enviados para lista na sessão para depois redirecionar para a página que exibe os Artistas
+
+     > 2. Criar listagem dos Artista e botão para excluir cada Artista individualmente
+
+     > 3. Criar a Exclusão e exibir informação sobre Exclusão realizada
+
+     > 4. Criar Filtragem de Artista que use o Nome do Artista e seu Estilo Musical para encontrar e exibir o respectivo Artista    
+
 ---      
 2. Exercícios APS
 
